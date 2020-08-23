@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="js/jquery-ui.min.css">
+
+    <script>
+        function Login() {
+            var done = 0;
+            var username = document.login.username.value;
+            username = username.toLowerCase();
+            var password = document.login.password.value;
+            password = password.toLowerCase();
+            if (username == "pretacelinfo" && password == "pretacelinfo") { window.location = "pagina_inicial.html"; done = 1; }
+            if (username == "admin" && password == "admin") { window.location = "pagina_inicial.html"; done = 1; }
+            if (done == 0) { alert("Senha ou Usuário inválido."); }
+        }
+    </script>
+</head>
+
+<body class="bg-gradient-primary">
+
+    <div class="container">
+
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Bem vindo de volta!</h1>
+                                    </div>
+                                    <form name=login>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="username"
+                                                aria-describedby="emailHelp" placeholder="usuario">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                name="password" placeholder="senha">
+                                        </div>
+                                    </form>
+                                    <button class="btn btn-primary btn-user btn-block" onClick="Login()">
+                                        Login
+                                    </button>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- conexao com jquery e js -->
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <title>Pedidos</title>
+
+    <script>
+
+        function PrintElem(elem) {
+            var mywindow = window.open('', 'PRINT', 'height=700,width=1200');
+
+            mywindow.document.write('<html><head><title>' + document.title + '</title>');
+            mywindow.document.write('</head><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"><body >');
+            mywindow.document.write(document.getElementById(elem).innerHTML);
+            mywindow.document.write('</body></html>');
+            mywindow.document.close(); // necessary for IE >= 10
+            mywindow.focus(); // necessary for IE >= 10*/
+            mywindow.print();
+            mywindow.close();
+
+            return true;
+        }
+    </script>
+
+</head>
+
+<body onload="loadOrdensUsuario()">
+    <div id="container-fluid bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+            <a class="navbar-brand" href="pagina_inicial.html">
+                <img src="imagens/logo_preto.png" height="50"></img>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="#" onclick="window.history.back()"><b>Voltar</b></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="m-5">
+            <h1 class="mt-2">Relatório de venda</h1>
+
+            <div class="cold-md-6 mt-5 mb-3" id="dadosCliente">
+            </div>
+            <div class="card-body mt-3">
+
+                <table class="table table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Produto</th>
+                            <th scope="col">Marca</th>
+                            <th scope="col">Qtd.</th>
+                            <th scope="col" class="text-center">Valor</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaProdutos">
+                    </tbody>
+                    <h4>Produtos</h4>
+
+                    <tr id="totalListaProdutos">
+                    </tr>
+                </table>
+
+
+                <h4 class="mt-5">Resumo para Impressão</h4>
+
+                Imprimir relatório de venda para entrega:
+                <button class="btn btn-primary btn-sm hidden-print "
+                    onclick="PrintElem('resumoImpressao')">Imprimir</button>
+                <div id="resumoImpressao" hidden>
+                    <div class="card m-5">
+                        <div class="card-body">
+                            <div id="resumoDados1"></div>
+                            <div id="resumoDados2"></div>
+                            <div id="resumoProdutos">
+                                <h5>Produtos</h5>
+                                <table class="table table-hover table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Produto</th>
+                                            <th scope="col">Marca</th>
+                                            <th scope="col">Qtd.</th>
+                                            <th scope="col" class="text-center">Valor</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="listaProdutosResumo">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDM3PDLYDZYQb52KuElOH-nsZzoE5mGr8I",
+            authDomain: "pretainformatica-1c56f.firebaseapp.com",
+            databaseURL: "https://pretainformatica-1c56f.firebaseio.com",
+            projectId: "pretainformatica-1c56f",
+            storageBucket: "pretainformatica-1c56f.appspot.com",
+            messagingSenderId: "177513002845",
+            appId: "1:177513002845:web:ab0307fd655d23c19c9ab4",
+            measurementId: "G-NBRHMZSM58"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <script src="todas_orders.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+
+<script type="text/javascript">
+    $("[data-toggle=\"tooltip\"]").tooltip();
+</script>
+
+</html>
